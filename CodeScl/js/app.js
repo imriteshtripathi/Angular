@@ -2,8 +2,20 @@
     var app = angular.module('store',[]);
 
     app.controller('StoreCtrl',function(){
-      this.product = gems;
+      this.products = gems;
     });
+
+    app.controller('PanelCtrl',function(){
+        this.tab = 1;
+
+        this.setTab = function(tabVal){
+            this.tab = tabVal;
+        }
+        this.isSelected = function(checkTab){
+            return this.tab === checkTab;
+        }
+    });
+
     var gems = [{
         name: 'Azurite',
         description: "Some gems have hidden qualities beyond their luster, beyond their shine... Azurite is one of those gems.",
@@ -13,9 +25,9 @@
         color: '#CCC',
         faces: 14,
         images: [
-            "http://cl.zdn.io/UuY7/gem-02.gif",
-            "http://cl.zdn.io/UuWP/gem-05.gif",
-            "http://cl.zdn.io/UuD4/gem-09.gif"
+            "images/1/1.jpg",
+            "images/1/2.jpg",
+            "images/1/3.jpg"
         ],
         reviews: [{
             stars: 5,
@@ -37,9 +49,9 @@
         color: '#EEE',
         faces: 12,
         images: [
-            "http://cl.zdn.io/UvAK/gem-01.gif",
-            "http://cl.zdn.io/Uuwd/gem-03.gif",
-            "http://cl.zdn.io/UuVP/gem-04.gif",
+            "images/2/1.jpg",
+            "images/2/2.jpg",
+            "images/2/3.jpg",
         ],
         reviews: [{
             stars: 3,
@@ -61,9 +73,9 @@
         color: '#000',
         faces: 6,
         images: [
-            "http://cl.zdn.io/Uv3v/gem-06.gif",
-            "http://cl.zdn.io/Uu84/gem-07.gif",
-            "http://cl.zdn.io/Uuky/gem-10.gif"
+            "images/3/1.jpg",
+            "images/3/2.jpg",
+            "images/3/3.jpg",
         ],
         reviews: [{
             stars: 1,
