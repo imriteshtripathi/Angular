@@ -1,20 +1,21 @@
 (function(){
-    var app = angular.module('store',[]);
+    var app = angular.module('store',['store-products']);
 
     app.controller('StoreCtrl',function(){
       this.products = gems;
     });
 
-    app.controller('PanelCtrl',function(){
-        this.tab = 1;
+    //app.controller('PanelCtrl',function(){
+    //    this.tab = 1;
+    //
+    //    this.setTab = function(tabVal){
+    //        this.tab = tabVal;
+    //    }
+    //    this.isSelected = function(checkTab){
+    //        return this.tab === checkTab;
+    //    }
+    //});
 
-        this.setTab = function(tabVal){
-            this.tab = tabVal;
-        }
-        this.isSelected = function(checkTab){
-            return this.tab === checkTab;
-        }
-    });
 
     var gems = [{
         name: 'Azurite',

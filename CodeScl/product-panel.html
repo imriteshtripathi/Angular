@@ -1,0 +1,68 @@
+<div>
+    {{tab}}
+    <ul class="nav  nav-pills">
+        <li ng-class="{'active':panel.isSelected(1)}"><a data-toggle="tab" data-ng-click="panel.setTab(1)">Description</a>
+        </li>
+        <li ng-class="{'active':panel.isSelected(2)}"><a data-toggle="tab" data-ng-click="panel.setTab(2)">Specification</a>
+        </li>
+        <li ng-class="{'active':panel.isSelected(3)}"><a data-toggle="tab" data-ng-click="panel.setTab(3)">Reviews</a>
+        </li>
+
+    </ul>
+
+    <div class="tab-content">
+        <div id="home" class="tab-pane fade" ng-class="{'active in':panel.isSelected(1)}">
+            <h3>Description</h3>
+
+            <p>{{product.description}}</p>
+        </div>
+        <div id="menu1" class="tab-pane fade" ng-class="{'active in':panel.isSelected(2)}">
+            <h3>Specification</h3>
+            {{Specification}}
+        </div>
+        <div id="menu2" class="tab-pane fade" ng-class="{'active in':panel.isSelected(3)}">
+            <h3>Reviews</h3>
+            <blockquote data-ng-repeat="review in product.reviews">
+                <strong>{{review.stars}} Stars</strong>
+                {{review.body}}
+                <cite class="clearfix">-{{review.author}} on {{review.createdOn | date}}</cite>
+            </blockquote>
+
+            <form name="reviewForm" ng-controller="ReviewControler as reviewCtrl" ng-submit="reviewForm.$valid && reviewCtrl.addReview(product)" novalidate>
+                <blockquote>
+                    <strong>{{reviewCtrl.review.stars}} Stars</strong>
+                    {{reviewCtrl.review.body}}
+                    <cite class="clearfix">-{{reviewCtrl.review.author}}</cite>
+                </blockquote>
+
+                <div class="form-group">
+                    <label>Star</label>
+                    <select ng-model="reviewCtrl.review.stars" class="form-control" required>
+                        <option value="1"> 1 Star</option>
+                        <option value="2"> 2 Star</option>
+                        <option value="3"> 3 Star</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleTextarea">Example textarea</label>
+                                <textarea class="form-control" id="exampleTextarea" cols="5" rows="3"
+                                          ng-model="reviewCtrl.review.body"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input type="email" id="author" required ng-model="reviewCtrl.review.author" placeholder="Enter Author"
+                           class="form-control"/>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+
+
+        </div>
+
+    </div>
+
+</div>
