@@ -11,15 +11,10 @@
         <li class="list-group-item" data-ng-repeat="product in store.products | orderBy:'-price'">
             <product-title></product-title>
 
-
-
             <div style="text-align:center">
                 <img ng-src="{{product.images[0]}}" alt="{{product.name}}"/>
             </div>
-
             <product-panel></product-panel>
-
-
         </li>
     </ul>
 
